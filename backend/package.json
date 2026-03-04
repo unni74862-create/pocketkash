@@ -1,0 +1,22 @@
+{
+  "name": "pocketkash-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js",
+    "test-connection": "node test-connection.js",
+    "setup-gmail": "node setup-gmail.js",
+    "test-gmail": "node test-gmail.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.7.2",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "~9.0.0",
+    "nodemailer": "^6.9.7"
+  }
+}
