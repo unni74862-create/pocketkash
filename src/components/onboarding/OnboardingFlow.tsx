@@ -50,26 +50,25 @@ const OnboardingFlow = () => {
     if (currentStep < TOTAL_STEPS) {
       setCurrentStep(prev => prev + 1);
     } else {
-      // Complete onboarding and save to backend
+      // Complete onboarding locally first, then save to backend in background
+      completeOnboarding(data);
+      toast({
+        title: 'Welcome to PocketKash!',
+        description: 'Your profile is set up. Start tracking your expenses!',
+      });
+      
+      // Save to backend in the background (non-blocking)
       const authUser = authApi.getCurrentUser();
       if (authUser && authUser.id) {
         authApi.saveProfile(authUser.id, data)
-          .then(() => {
-            completeOnboarding(data);
-            toast({
-              title: 'Welcome to PocketKash!',
-              description: 'Your profile is set up. Start tracking your expenses!',
-            });
-            navigate('/dashboard');
-          })
           .catch((error) => {
-            toast({
-              title: 'Error',
-              description: 'Failed to save profile. Please try again.',
-              variant: 'destructive',
-            });
+            console.error('Profile save failed:', error);
+            // Silently fail - data is already saved locally
           });
       }
+      
+      // Navigate to dashboard immediately
+      navigate('/dashboard');
     }
   };
 

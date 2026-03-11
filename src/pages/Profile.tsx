@@ -447,32 +447,6 @@ const Profile = () => {
             <CardDescription>App settings and information</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Privacy & Policy */}
-            <div className="space-y-2">
-              <h3 className="font-semibold text-sm">Privacy & Policy</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Read our privacy policy and terms of service
-              </p>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <a 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors text-sm text-center"
-                >
-                  Privacy Policy
-                </a>
-                <a 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors text-sm text-center"
-                >
-                  Terms of Service
-                </a>
-              </div>
-            </div>
-
             <Separator />
 
             {/* Version Info */}
